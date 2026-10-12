@@ -1,5 +1,5 @@
 import pygame
-
+from inventory import Inventory
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.jump_speed = -16
         self.on_ground = True
         self.knockback_timer = 0
-
+        self.inventory = Inventory()
         self.hp = 10
 
     def damage(self):
@@ -46,3 +46,6 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.get_input()
+
+    def get_inventory(self):
+        return self.inventory
